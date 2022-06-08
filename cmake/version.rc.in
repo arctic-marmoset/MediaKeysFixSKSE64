@@ -1,0 +1,34 @@
+#include <winres.h>
+
+#ifndef NDEBUG
+#define VER_DEBUG (VS_FF_PRERELEASE | VS_FF_DEBUG)
+#else
+#define VER_DEBUG 0
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@,@PROJECT_VERSION_PATCH@,0
+    PRODUCTVERSION  @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@,@PROJECT_VERSION_PATCH@,0
+    FILEFLAGSMASK   0x17L
+    FILEFLAGS       VER_DEBUG
+    FILEOS          VOS__WINDOWS32
+    FILETYPE        VFT_DLL
+    FILESUBTYPE     VFT2_UNKNOWN
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904B0"
+        {
+            VALUE "FileDescription", "@PROJECT_DESCRIPTION@"
+            VALUE "FileVersion",     "@PROJECT_VERSION@"
+            VALUE "InternalName",    "@PROJECT_NAME@"
+            VALUE "LegalCopyright",  "@PROJECT_COPYRIGHT@"
+            VALUE "ProductName",     "@PROJECT_FRIENDLY_NAME@"
+            VALUE "ProductVersion",  "@PROJECT_VERSION@"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x409, 1200
+    }
+}
